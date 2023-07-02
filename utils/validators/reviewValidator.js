@@ -51,44 +51,53 @@ const createReviewValidator = [
     validatorMiddleware
 ]
 
-// const getCategoryValidator = [
-//     check('id').isMongoId().withMessage('Invalid category Id'),
-//     validatorMiddleware
-// ]
-//
-const updateCategoryValidator = [
-    check('id').isMongoId().withMessage('Invalid review Id'),
-    check('product')
-        .notEmpty()
-        .withMessage('Product Id is required')
+const getReviewValidator = [
+    check('id').isMongoId().withMessage('Invalid category Id'),
+    validatorMiddleware
+]
+
+const updateReviewValidator = [
+    check('id')
         .isMongoId()
-        .withMessage('Invalid product Id')
+        .withMessage('Invalid review Id')
         .custom(async (val, {req}) => {
-            const {user} = req.body
-            
-            const product = await Product.findById(val)
-            if (!product) {
-                throw new ApiError('Product Id is not exists', 404)
+            const review = await Review.findById(val)
+            if (!review) {
+                throw new ApiError(`There is no review for this id ${val}`)
             }
 
-            const review = await Review.findOne({user, product: val})
-            if (review) {
-                throw new ApiError('You already created a review before')
+            if (review.user.toString() !== req.user._id.toString()) {
+                throw new ApiError('You are not allowed to perform this action')
+            }
+        }),
+    validatorMiddleware
+]
+
+const deleteReviewValidator = [
+    check('id')
+        .isMongoId()
+        .withMessage('Invalid category Id')
+        .custom(async (val, {req}) => {
+            if (req.user.role === 'user') {
+                const review = await Review.findById(val)
+                if (!review) {
+                    throw new ApiError(`There is no review for this id ${val}`)
+                }
+
+                if (review.user.toString() !== req.user._id.toString()) {
+                    throw new ApiError('You are not allowed to perform this action')
+                }
             }
 
+            // TODO: Adding validation if the user is vendor that he can only delete the reviews of his products
             return true
         }),
     validatorMiddleware
 ]
-//
-// const deleteCategoryValidator = [
-//     check('id').isMongoId().withMessage('Invalid category Id'),
-//     validatorMiddleware
-// ]
 
 module.exports = {
     createReviewValidator,
-    // getCategoryValidator,
-    // updateCategoryValidator,
-    // deleteCategoryValidator
+    getReviewValidator,
+    updateReviewValidator,
+    deleteReviewValidator
 }

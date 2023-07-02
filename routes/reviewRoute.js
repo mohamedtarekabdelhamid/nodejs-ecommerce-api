@@ -12,9 +12,9 @@ const {
 
 const {
     createReviewValidator,
-    // getReviewValidator,
-    // updateReviewValidator,
-    // deleteReviewValidator
+    getReviewValidator,
+    updateReviewValidator,
+    deleteReviewValidator
 } = require('../utils/validators/reviewValidator')
 
 const {auth, allowedTo} = require('../services/authService')
@@ -31,19 +31,19 @@ router
 
 router.route('/:id')
     .get(
-        // ...getReviewValidator,
+        ...getReviewValidator,
         getReview
     )
     .put(
         auth,
         allowedTo('user'),
-        // ...updateReviewValidator,
+        ...updateReviewValidator,
         updateReview
     )
     .delete(
         auth,
         allowedTo('admin', 'vendor', 'user'),
-        // ...deleteReviewValidator,
+        ...deleteReviewValidator,
         deleteReview
     )
 
