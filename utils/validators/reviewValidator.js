@@ -66,7 +66,7 @@ const updateReviewValidator = [
                 throw new ApiError(`There is no review for this id ${val}`)
             }
 
-            if (review.user.toString() !== req.user._id.toString()) {
+            if (review.user._id.toString() !== req.user._id.toString()) {
                 throw new ApiError('You are not allowed to perform this action')
             }
         }),
@@ -84,7 +84,7 @@ const deleteReviewValidator = [
                     throw new ApiError(`There is no review for this id ${val}`)
                 }
 
-                if (review.user.toString() !== req.user._id.toString()) {
+                if (review.user._id.toString() !== req.user._id.toString()) {
                     throw new ApiError('You are not allowed to perform this action')
                 }
             }
