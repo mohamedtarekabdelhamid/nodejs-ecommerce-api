@@ -52,7 +52,18 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     }
-}, {timestamps: true})
+}, {timestamps: true, toJSON: {virtuals: true}, toObject: {virtuals: true}})
+
+productSchema.virtual('reviews', {
+    ref: 'Review',
+    foreignField: 'product',
+    localField: '_id'
+})
+
+productSchema.pre(/^findOne/, function (next) {
+    this.populate({path: 'reviews'})
+    next()
+})
 
 const ProductModel = mongoose.model('Product', productSchema)
 
