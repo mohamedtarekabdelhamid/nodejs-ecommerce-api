@@ -17,11 +17,15 @@ const {
     deleteProductValidator
 } = require('../utils/validators/productValidator')
 
+const reviewRoute = require('../routes/reviewRoute')
+
 const {auth, allowedTo} = require('../services/authService')
 
 const {uploadMultiImages} = require('../middlewares/uploadImagesMiddleware')
 
 const {resizeCoverAndMultiImages} = require('../middlewares/resizeImagesMiddleware')
+
+router.use('/:productId/reviews', reviewRoute)
 
 router
     .route('/')

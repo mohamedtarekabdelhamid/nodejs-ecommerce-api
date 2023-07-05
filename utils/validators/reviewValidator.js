@@ -18,8 +18,7 @@ const createReviewValidator = [
         .isLength({min: 2, max: 100})
         .withMessage('Review content must be between 2 and 100 characters'),
     check('user')
-        .notEmpty()
-        .withMessage('User Id is required')
+        .optional()
         .isMongoId()
         .withMessage('Invalid user Id')
         .custom((val, {req}) => {
@@ -29,8 +28,7 @@ const createReviewValidator = [
             return true
         }),
     check('product')
-        .notEmpty()
-        .withMessage('Product Id is required')
+        .optional()
         .isMongoId()
         .withMessage('Invalid product Id')
         .custom(async (val, {req}) => {
@@ -76,7 +74,7 @@ const updateReviewValidator = [
 const deleteReviewValidator = [
     check('id')
         .isMongoId()
-        .withMessage('Invalid category Id')
+        .withMessage('Invalid review Id')
         .custom(async (val, {req}) => {
             if (req.user.role === 'user') {
                 const review = await Review.findById(val)

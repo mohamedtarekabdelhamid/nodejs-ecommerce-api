@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="029f13f0-80a3-45f6-8c8c-04a28b31ed1a" name="Changes" comment="Populate reviews of each product in productModel.js">
+    <list default="true" id="029f13f0-80a3-45f6-8c8c-04a28b31ed1a" name="Changes" comment="Solve update and delete review issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/productRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/productRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/reviewRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/reviewRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/handlerFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/handlerFactory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/reviewService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/reviewService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/validators/reviewValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/validators/reviewValidator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +49,7 @@
       <workItem from="1686662280254" duration="675000" />
       <workItem from="1686747429622" duration="1241000" />
       <workItem from="1686836701964" duration="5624000" />
-      <workItem from="1687447374182" duration="7929000" />
+      <workItem from="1687447374182" duration="12017000" />
     </task>
     <task id="LOCAL-00001" summary="Working on Review CRUD">
       <created>1688318086512</created>
@@ -68,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688392080011</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Populate reviews of each product in productModel.js">
+      <created>1688399516226</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688399516226</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,7 +99,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working on Review CRUD" />
     <MESSAGE value="Populate user in Review model" />
-    <MESSAGE value="Populate reviews of each product in productModel.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Populate reviews of each product in productModel.js" />
+    <MESSAGE value="Solve update and delete review issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solve update and delete review issue" />
   </component>
 </project>

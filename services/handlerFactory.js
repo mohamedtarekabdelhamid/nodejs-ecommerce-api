@@ -12,9 +12,15 @@ const createOne = Model => {
 const getAll = Model => {
     return asyncHandler(async (req, res) => {
 
+        let filter = {}
+
+        if (req.filterObj) {
+            filter = req.filterObj
+        }
+
         const documentsCount = await Model.countDocuments()
 
-        const apiFeatures = new ApiFeatures(Model.find(), req.query)
+        const apiFeatures = new ApiFeatures(Model.find(filter), req.query)
             .paginate(documentsCount)
             .filter()
             .sort()

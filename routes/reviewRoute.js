@@ -1,13 +1,15 @@
 const express = require('express')
 
-const router = express.Router()
+const router = express.Router({mergeParams: true})
 
 const {
     createReview,
     getReviews,
     getReview,
     updateReview,
-    deleteReview
+    deleteReview,
+    createFilterObj,
+    setProductIdAndUserIdToBody
 } = require('../services/reviewService')
 
 const {
@@ -24,10 +26,11 @@ router
     .post(
         auth,
         allowedTo('user'),
+        setProductIdAndUserIdToBody,
         ...createReviewValidator,
         createReview
     )
-    .get(getReviews)
+    .get(createFilterObj, getReviews)
 
 router.route('/:id')
     .get(
