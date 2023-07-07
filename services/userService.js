@@ -129,6 +129,40 @@ const getLoggedUserWishlist = asyncHandler(async (req, res, next) => {
     })
 })
 
+// TODO: Refactoring this code with the previous code
+
+const addAddress = asyncHandler(async (req, res, next) => {
+    const user = await User.findByIdAndUpdate(req.user._id, {
+        $addToSet: {addresses: req.body}
+    }, {new: true})
+
+    res.status(200).send({
+        status: 'Success',
+        message: 'Address added',
+        data: user.addresses
+    })
+})
+
+const removeAddress = asyncHandler(async (req, res, next) => {
+    const user = await User.findByIdAndUpdate(req.user._id, {
+        $pull: {addresses: {_id: req.params.addressId}}
+    }, {new: true})
+
+    res.status(200).send({
+        status: 'Success',
+        message: 'Address removed',
+        data: user.addresses
+    })
+})
+
+const getLoggedUserAddresses = asyncHandler(async (req, res, next) => {
+    const user = await User.findById(req.user._id)
+    res.status(200).send({
+        result: user.addresses.length,
+        data: user.addresses
+    })
+})
+
 module.exports = {
     createUser,
     getUsers,
@@ -144,5 +178,8 @@ module.exports = {
     changeLoggedUserPassword,
     addProductToWishlist,
     removeProductFromWishlist,
-    getLoggedUserWishlist
+    getLoggedUserWishlist,
+    addAddress,
+    removeAddress,
+    getLoggedUserAddresses
 }

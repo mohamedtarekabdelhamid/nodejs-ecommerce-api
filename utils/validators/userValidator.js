@@ -225,6 +225,40 @@ const removeProductFromWishlistValidator = [
     validatorMiddleware
 ]
 
+const addAddressValidator = [
+    check('alias')
+        .notEmpty()
+        .withMessage('Address alias is required')
+        .isLength({min: 3})
+        .withMessage('Too short name')
+        .isLength({max: 32})
+        .withMessage('Too long name'),
+    check('details')
+        .notEmpty()
+        .withMessage('Address details is required')
+        .isLength({min: 10})
+        .withMessage('Too short name')
+        .isLength({max: 100})
+        .withMessage('Too long name'),
+    check('phone')
+        .optional()
+        .isMobilePhone('ar-EG')
+        .withMessage('Only Egyptian phone number is support'),
+    check('postalCode')
+        .optional()
+        .isPostalCode(),
+    validatorMiddleware
+]
+
+const removeAddressValidator = [
+    check('addressId')
+        .notEmpty()
+        .withMessage('Address Id is required')
+        .isMongoId()
+        .withMessage('Invalid address Id'),
+    validatorMiddleware
+]
+
 module.exports = {
     createUserValidator,
     getUserValidator,
@@ -233,5 +267,7 @@ module.exports = {
     changeUserPasswordValidator,
     updateLoggedUserValidator,
     addProductToWishlistValidator,
-    removeProductFromWishlistValidator
+    removeProductFromWishlistValidator,
+    addAddressValidator,
+    removeAddressValidator
 }

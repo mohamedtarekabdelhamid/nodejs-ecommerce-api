@@ -17,7 +17,10 @@ const {
     changeLoggedUserPassword,
     addProductToWishlist,
     removeProductFromWishlist,
-    getLoggedUserWishlist
+    getLoggedUserWishlist,
+    addAddress,
+    removeAddress,
+    getLoggedUserAddresses
 } = require('../services/userService')
 
 const {
@@ -28,7 +31,9 @@ const {
     changeUserPasswordValidator,
     updateLoggedUserValidator,
     addProductToWishlistValidator,
-    removeProductFromWishlistValidator
+    removeProductFromWishlistValidator,
+    addAddressValidator,
+    removeAddressValidator
 } = require('../utils/validators/userValidator')
 
 const {auth, allowedTo} = require('../services/authService')
@@ -54,8 +59,21 @@ router
     .get(getLoggedUserWishlist)
 router.delete(
     '/me/wishlist/:productId',
-    removeProductFromWishlistValidator,
+    ...removeProductFromWishlistValidator,
     removeProductFromWishlist
+)
+router
+    .route('/me/addresses')
+    .post(
+        allowedTo('user'),
+        ...addAddressValidator,
+        addAddress
+    )
+    .get(getLoggedUserAddresses)
+router.delete(
+    '/me/addresses/:addressId',
+    ...removeAddressValidator,
+    removeAddress
 )
 
 router

@@ -37,6 +37,15 @@ const userSchema = new mongoose.Schema(
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Product'
             }
+        ],
+        addresses: [
+            {
+                alias: String,
+                details: String,
+                phone: String,
+                city: String,
+                postalCode: String
+            }
         ]
     },
     { timestamps: true }

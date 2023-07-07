@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="029f13f0-80a3-45f6-8c8c-04a28b31ed1a" name="Changes" comment="Apply nested route for Product/Review">
+    <list default="true" id="029f13f0-80a3-45f6-8c8c-04a28b31ed1a" name="Changes" comment="Working with Add/Remove product to/from wishlist and read the wishlist">
+      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/userModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/userRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/userRoute.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/userService.js" afterDir="false" />
@@ -12,6 +14,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,6 +42,7 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "F:/Projects/nodejs-spaceteens-api",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -48,7 +58,7 @@
       <workItem from="1686662280254" duration="675000" />
       <workItem from="1686747429622" duration="1241000" />
       <workItem from="1686836701964" duration="5624000" />
-      <workItem from="1687447374182" duration="17870000" />
+      <workItem from="1687447374182" duration="20161000" />
     </task>
     <task id="LOCAL-00001" summary="Working on Review CRUD">
       <created>1688318086512</created>
@@ -85,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688585347820</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Working with Add/Remove product to/from wishlist and read the wishlist">
+      <created>1688748834194</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688748834194</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +124,7 @@
     <MESSAGE value="Populate user in Review model" />
     <MESSAGE value="Solve update and delete review issue" />
     <MESSAGE value="Apply nested route for Product/Review" />
-    <option name="LAST_COMMIT_MESSAGE" value="Apply nested route for Product/Review" />
+    <MESSAGE value="Working with Add/Remove product to/from wishlist and read the wishlist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working with Add/Remove product to/from wishlist and read the wishlist" />
   </component>
 </project>
