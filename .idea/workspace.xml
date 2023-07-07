@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="029f13f0-80a3-45f6-8c8c-04a28b31ed1a" name="Changes" comment="Solve update and delete review issue">
+    <list default="true" id="029f13f0-80a3-45f6-8c8c-04a28b31ed1a" name="Changes" comment="Apply nested route for Product/Review">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/productRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/productRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/reviewRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/reviewRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/handlerFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/handlerFactory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/reviewService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/reviewService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/validators/reviewValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/validators/reviewValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/userModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/userRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/userRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/validators/userValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/validators/userValidator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,7 @@
       <workItem from="1686662280254" duration="675000" />
       <workItem from="1686747429622" duration="1241000" />
       <workItem from="1686836701964" duration="5624000" />
-      <workItem from="1687447374182" duration="12017000" />
+      <workItem from="1687447374182" duration="17870000" />
     </task>
     <task id="LOCAL-00001" summary="Working on Review CRUD">
       <created>1688318086512</created>
@@ -79,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688399516226</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Apply nested route for Product/Review">
+      <created>1688585347820</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688585347820</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +106,7 @@
     <MESSAGE value="Working on Review CRUD" />
     <MESSAGE value="Populate user in Review model" />
     <MESSAGE value="Solve update and delete review issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solve update and delete review issue" />
+    <MESSAGE value="Apply nested route for Product/Review" />
+    <option name="LAST_COMMIT_MESSAGE" value="Apply nested route for Product/Review" />
   </component>
 </project>

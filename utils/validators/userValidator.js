@@ -2,6 +2,7 @@ const {check} = require('express-validator')
 const bcrypt = require('bcryptjs')
 
 const User = require('../../models/userModel')
+const Product = require('../../models/productModel')
 const ApiError = require('../apiError')
 const validatorMiddleware = require('../../middlewares/validatorMiddleware')
 
@@ -194,6 +195,35 @@ const updateLoggedUserValidator = [
     validatorMiddleware
 ]
 
+const addProductToWishlistValidator = [
+    check('product')
+        .notEmpty()
+        .withMessage('Product Id is required')
+        .isMongoId()
+        .withMessage('Invalid product Id')
+        .custom(async val => {
+            const product = await Product.findById(val)
+            if (!product) {
+                throw new ApiError(`There is no product for this Id ${val}`)
+            }
+        }),
+    validatorMiddleware
+]
+
+const removeProductFromWishlistValidator = [
+    check('productId')
+        .notEmpty()
+        .withMessage('Product Id is required')
+        .isMongoId()
+        .withMessage('Invalid product Id')
+        .custom(async val => {
+            const product = await Product.findById(val)
+            if (!product) {
+                throw new ApiError(`There is no product for this Id ${val}`)
+            }
+        }),
+    validatorMiddleware
+]
 
 module.exports = {
     createUserValidator,
@@ -201,5 +231,7 @@ module.exports = {
     updateUserValidator,
     deleteUserValidator,
     changeUserPasswordValidator,
-    updateLoggedUserValidator
+    updateLoggedUserValidator,
+    addProductToWishlistValidator,
+    removeProductFromWishlistValidator
 }

@@ -14,7 +14,10 @@ const {
     deleteLoggedUser,
     activateLoggedUser,
     deactivateLoggedUser,
-    changeLoggedUserPassword
+    changeLoggedUserPassword,
+    addProductToWishlist,
+    removeProductFromWishlist,
+    getLoggedUserWishlist
 } = require('../services/userService')
 
 const {
@@ -23,13 +26,14 @@ const {
     updateUserValidator,
     deleteUserValidator,
     changeUserPasswordValidator,
-    updateLoggedUserValidator
+    updateLoggedUserValidator,
+    addProductToWishlistValidator,
+    removeProductFromWishlistValidator
 } = require('../utils/validators/userValidator')
 
 const {auth, allowedTo} = require('../services/authService')
 
 const {uploadSingleImage} = require('../middlewares/uploadImagesMiddleware')
-
 const {resizeSingleImage} = require('../middlewares/resizeImagesMiddleware')
 
 router.use(auth)
@@ -40,11 +44,23 @@ router.put('/me/activate', activateLoggedUser)
 router.delete('/me/delete', deleteLoggedUser)
 router.delete('/me/deactivate', deactivateLoggedUser)
 router.put('/me/changePassword', changeLoggedUserPassword)
+router
+    .route('/me/wishlist')
+    .post(
+        allowedTo('user'),
+        ...addProductToWishlistValidator,
+        addProductToWishlist
+    )
+    .get(getLoggedUserWishlist)
+router.delete(
+    '/me/wishlist/:productId',
+    removeProductFromWishlistValidator,
+    removeProductFromWishlist
+)
 
 router
     .route('/')
     .post(
-        auth,
         allowedTo('admin'),
         uploadSingleImage('avatar'),
         resizeSingleImage('avatar', 'user'),
@@ -52,7 +68,6 @@ router
         createUser
     )
     .get(
-        auth,
         allowedTo('admin'),
         getUsers
     )
@@ -60,7 +75,6 @@ router
 router.route('/:id')
     .get(...getUserValidator, getUser)
     .put(
-        auth,
         allowedTo('admin', 'vendor'),
         uploadSingleImage('avatar'),
         resizeSingleImage('avatar', 'user'),
@@ -68,7 +82,6 @@ router.route('/:id')
         updateUser
     )
     .delete(
-        auth,
         allowedTo('admin'),
         ...deleteUserValidator,
         deleteUser
@@ -76,7 +89,6 @@ router.route('/:id')
 
 router.put(
     '/changePassword/:id',
-    auth,
     allowedTo('admin', 'vendor, user'),
     ...changeUserPasswordValidator,
     changeUserPassword
